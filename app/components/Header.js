@@ -1,9 +1,12 @@
-import React, { useState } from "react"
+import React, { useState, useContext } from "react"
 import { Link } from "react-router-dom"
 import HeaderLoggedOut from "./HeaderLoggedOut"
 import HeaderLoggedIn from "./HeaderLoggedIn"
+import StateContext from "../StateContext"
 
 function Header(props) {
+  const appState = useContext(StateContext)
+
   const [loggedIn, setLoggedIn] = useState(Boolean(localStorage.getItem("BloggerToken")))
 
   return (
@@ -15,7 +18,7 @@ function Header(props) {
             Blogger{" "}
           </Link>
         </h4>
-        {props.loggedIn ? <HeaderLoggedIn setLoggedIn={props.setLoggedIn} /> : <HeaderLoggedOut setLoggedIn={props.setLoggedIn} />}
+        {appState.loggedIn ? <HeaderLoggedIn /> : <HeaderLoggedOut />}
       </div>
     </header>
   )
