@@ -4,6 +4,7 @@ import { useParams, Link } from "react-router-dom"
 import Axios from "axios"
 import LoadingDotsIcon from "./LoadingDotsIcon"
 import ReactMarkdown from "react-markdown"
+import ReactTooltip from "react-tooltip"
 
 function ViewSinglePost() {
   const { id } = useParams()
